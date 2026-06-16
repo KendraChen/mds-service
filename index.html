@@ -1,0 +1,1368 @@
+<!doctype html>
+<html lang="zh-Hant">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kendra｜用戶成長與 CRM 營運專家</title>
+  <meta name="description" content="Kendra｜用戶成長與 CRM 營運專家。9年 CFD 經驗、5年管理經驗，專注客戶經營、數據驅動與商業成長。" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    :root {
+      --blue: #2563eb;
+      --purple: #7c3aed;
+      --mint: #10b981;
+      --text: #0f172a;
+      --muted: #475569;
+      --bg: #ffffff;
+      --soft: #f8fafc;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang TC", "Noto Sans TC", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(37, 99, 235, .10), transparent 28%),
+        radial-gradient(circle at 80% 10%, rgba(124, 58, 237, .08), transparent 22%),
+        linear-gradient(180deg, #fff 0%, #f8fbff 45%, #ffffff 100%);
+      overflow-x: hidden;
+    }
+
+    .bg-grid {
+      background-image:
+        linear-gradient(rgba(148, 163, 184, .12) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(148, 163, 184, .12) 1px, transparent 1px);
+      background-size: 42px 42px;
+      mask-image: linear-gradient(to bottom, rgba(0, 0, 0, .45), transparent 95%);
+      pointer-events: none;
+    }
+
+    .glass-card {
+      background: rgba(255, 255, 255, .68);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border: 1px solid transparent;
+      background-clip: padding-box;
+      box-shadow: 0 20px 60px rgba(15, 23, 42, .08);
+      position: relative;
+    }
+
+    .glass-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      padding: 1px;
+      border-radius: inherit;
+      background: linear-gradient(135deg, rgba(37, 99, 235, .55), rgba(124, 58, 237, .30), rgba(16, 185, 129, .38));
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+      opacity: .65;
+    }
+
+    .soft-shadow {
+      box-shadow: 0 10px 30px rgba(15, 23, 42, .07);
+    }
+
+    .glow-hover {
+      transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease, background .25s ease;
+    }
+
+    .glow-hover:hover {
+      transform: translateY(-6px);
+      box-shadow:
+        0 18px 45px rgba(37, 99, 235, .12),
+        0 0 0 1px rgba(16, 185, 129, .14);
+    }
+
+    .section-kicker {
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: #64748b;
+      font-size: .78rem;
+      font-weight: 700;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .typing-line {
+      min-height: 1.1em;
+      display: block;
+    }
+
+    .typing-cursor {
+      display: inline-block;
+      width: 1px;
+      height: 1.05em;
+      margin-left: 2px;
+      background: linear-gradient(180deg, var(--blue), var(--mint));
+      vertical-align: -0.1em;
+      animation: blink 1s steps(1) infinite;
+    }
+
+    @keyframes blink {
+      50% {
+        opacity: 0;
+      }
+    }
+
+    .float-blob {
+      position: absolute;
+      border-radius: 9999px;
+      filter: blur(8px);
+      opacity: .55;
+      animation: drift 12s ease-in-out infinite;
+      pointer-events: none;
+    }
+
+    .float-blob.b1 {
+      width: 220px;
+      height: 220px;
+      background: rgba(37, 99, 235, .11);
+      top: 70px;
+      left: -40px;
+    }
+
+    .float-blob.b2 {
+      width: 160px;
+      height: 160px;
+      background: rgba(124, 58, 237, .10);
+      top: 320px;
+      right: -40px;
+      animation-delay: -3s;
+    }
+
+    .float-blob.b3 {
+      width: 120px;
+      height: 120px;
+      background: rgba(16, 185, 129, .10);
+      bottom: 120px;
+      left: 20%;
+      animation-delay: -6s;
+    }
+
+    @keyframes drift {
+
+      0%,
+      100% {
+        transform: translateY(0) translateX(0) scale(1);
+      }
+
+      50% {
+        transform: translateY(-18px) translateX(12px) scale(1.05);
+      }
+    }
+
+    .metric {
+      background: linear-gradient(180deg, rgba(255, 255, 255, .82), rgba(255, 255, 255, .58));
+      border: 1px solid rgba(148, 163, 184, .18);
+      border-radius: 1.25rem;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: .45rem;
+      padding: .48rem .75rem;
+      border-radius: 9999px;
+      background: rgba(255, 255, 255, .72);
+      border: 1px solid rgba(148, 163, 184, .18);
+      box-shadow: 0 8px 24px rgba(15, 23, 42, .04);
+      font-size: .9rem;
+      color: #0f172a;
+    }
+
+    .pill-dot {
+      width: .5rem;
+      height: .5rem;
+      border-radius: 9999px;
+      background: linear-gradient(135deg, var(--blue), var(--purple));
+      box-shadow: 0 0 0 4px rgba(37, 99, 235, .09);
+      flex: 0 0 auto;
+    }
+
+    .mini-chart {
+      height: 84px;
+      display: flex;
+      align-items: flex-end;
+      gap: 8px;
+    }
+
+    .mini-chart span {
+      width: 100%;
+      border-radius: 999px 999px 6px 6px;
+      background: linear-gradient(180deg, rgba(37, 99, 235, .95), rgba(124, 58, 237, .8));
+      box-shadow: 0 10px 30px rgba(37, 99, 235, .14);
+    }
+
+    .timeline-line {
+      position: absolute;
+      left: 18px;
+      top: 14px;
+      bottom: 14px;
+      width: 2px;
+      background: linear-gradient(180deg, rgba(37, 99, 235, .25), rgba(16, 185, 129, .25));
+    }
+
+    .mobile-menu {
+      transition: max-height .3s ease, opacity .3s ease, transform .3s ease;
+    }
+
+    .status-badge {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: -30px;
+      opacity: 0;
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--mint);
+      transition: opacity .22s ease, transform .22s ease;
+      white-space: nowrap;
+    }
+
+    .cta-group:hover .status-badge {
+      opacity: 1;
+      transform: translateX(-50%) translateY(-2px);
+    }
+
+    .fade-line {
+      background: linear-gradient(90deg, rgba(37, 99, 235, 0), rgba(37, 99, 235, .85), rgba(16, 185, 129, .95), rgba(124, 58, 237, .8), rgba(37, 99, 235, 0));
+      height: 1px;
+    }
+
+    .nav-float {
+      background: rgba(255, 255, 255, .72);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(148, 163, 184, .12);
+    }
+
+    .skill-bar {
+      height: 10px;
+      border-radius: 999px;
+      background: rgba(148, 163, 184, .14);
+      overflow: hidden;
+    }
+
+    .skill-bar>i {
+      display: block;
+      height: 100%;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--blue), var(--purple), var(--mint));
+    }
+  </style>
+</head>
+
+<body class="antialiased">
+  <!-- 背景：粒子連線 -->
+  <canvas id="bgCanvas" class="fixed inset-0 -z-20 h-full w-full"></canvas>
+  <div class="bg-grid fixed inset-0 -z-10 opacity-40"></div>
+
+  <!-- 流動光暈 -->
+  <div class="float-blob b1 -z-10"></div>
+  <div class="float-blob b2 -z-10"></div>
+  <div class="float-blob b3 -z-10"></div>
+
+  <!-- Navbar -->
+  <header id="navbar" class="nav-float sticky top-0 z-50">
+    <div class="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
+      <div class="flex h-20 items-center justify-between">
+        <a href="#home" class="group flex items-center gap-3">
+          <div
+            class="flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-600 to-violet-600 text-white shadow-lg shadow-blue-500/20">
+            <span class="text-sm font-bold">K</span>
+          </div>
+          <div>
+            <div class="text-sm font-semibold tracking-wide text-slate-900">Kendra</div>
+            <div class="text-xs text-slate-500">Growth × CRM × Data</div>
+          </div>
+        </a>
+
+        <nav class="hidden lg:flex items-center gap-8 text-sm font-medium text-slate-600">
+          <a class="hover:text-slate-900 transition" href="#about">關於我</a>
+          <a class="hover:text-slate-900 transition" href="#services">專業能力</a>
+          <a class="hover:text-slate-900 transition" href="#cases">案例成果</a>
+          <a class="hover:text-slate-900 transition" href="#skills">技能工具</a>
+          <a class="hover:text-slate-900 transition" href="#insights">技術觀點</a>
+          <a class="hover:text-slate-900 transition" href="#contact">聯絡我</a>
+        </nav>
+
+        <div class="hidden md:flex items-center gap-3">
+          <a href="#contact"
+            class="rounded-full border border-slate-200 bg-white px-5 py-2.5 text-sm font-semibold text-slate-700 shadow-sm hover:border-blue-200 hover:text-slate-900 transition">
+            立即聯絡
+          </a>
+          <a href="https://calendar.app.google/Fc5sixEVJtmpwJSv5" target="_blank" rel="noreferrer"
+            class="cta-group relative overflow-visible rounded-full bg-slate-900 px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-slate-900/15 transition hover:bg-emerald-500 hover:shadow-emerald-500/20">
+            <span class="block transition-transform duration-200 group-hover:-translate-y-1">預約諮詢</span>
+            <span class="status-badge">Status: Ready to Connect</span>
+          </a>
+        </div>
+
+        <button id="menuBtn"
+          class="md:hidden inline-flex items-center justify-center rounded-xl border border-slate-200 bg-white p-2.5 text-slate-700 shadow-sm">
+          <span class="sr-only">Open menu</span>
+          <svg id="menuIcon" class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.8">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+
+      <div id="mobileMenu" class="mobile-menu md:hidden max-h-0 overflow-hidden opacity-0 -translate-y-2 pb-0">
+        <div class="mb-4 rounded-3xl border border-slate-200 bg-white/80 p-4 shadow-sm backdrop-blur-xl">
+          <div class="grid gap-3 text-sm font-medium text-slate-700">
+            <a class="rounded-2xl px-4 py-3 hover:bg-slate-50" href="#about">關於我</a>
+            <a class="rounded-2xl px-4 py-3 hover:bg-slate-50" href="#services">專業能力</a>
+            <a class="rounded-2xl px-4 py-3 hover:bg-slate-50" href="#cases">案例成果</a>
+            <a class="rounded-2xl px-4 py-3 hover:bg-slate-50" href="#skills">技能工具</a>
+            <a class="rounded-2xl px-4 py-3 hover:bg-slate-50" href="#insights">技術觀點</a>
+            <a class="rounded-2xl px-4 py-3 hover:bg-slate-50" href="#contact">聯絡我</a>
+            <a class="rounded-2xl bg-slate-900 px-4 py-3 text-white hover:bg-emerald-500"
+              href="https://calendar.app.google/Fc5sixEVJtmpwJSv5" target="_blank" rel="noreferrer">預約諮詢</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section id="home" class="relative overflow-hidden">
+      <div class="mx-auto max-w-7xl px-5 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-24">
+        <div class="grid items-center gap-14 lg:grid-cols-[1.15fr_0.85fr]">
+          <div class="reveal">
+            <div class="mb-6 flex flex-wrap gap-3">
+              <span class="pill"><span class="pill-dot"></span> AI Tech / Premium SaaS Brand</span>
+              <span class="pill">用戶成長與 CRM 營運</span>
+            </div>
+
+            <div class="max-w-3xl">
+              <div class="space-y-2 text-4xl font-semibold tracking-tight text-slate-950 sm:text-5xl lg:text-6xl">
+                <div id="typeLine1" class="typing-line"></div>
+                <div id="typeLine2" class="typing-line"></div>
+                <div id="typeLine3" class="typing-line"></div>
+                <div id="typeLine4"
+                  class="typing-line bg-gradient-to-r from-blue-600 via-violet-600 to-emerald-500 bg-clip-text text-transparent">
+                </div>
+                <span id="cursor" class="typing-cursor"></span>
+              </div>
+
+              <p class="mt-7 max-w-2xl text-base leading-8 text-slate-600 sm:text-lg">
+                不只是客服背景，而是以 CRM、用戶生命週期管理與數據決策為核心的成長型營運角色。
+                連結客戶經營、轉化漏斗、流失召回與跨部門協作，讓營運真正推動商業成長。
+              </p>
+
+              <div class="mt-9 flex flex-col gap-4 sm:flex-row">
+                <a href="https://calendar.app.google/Fc5sixEVJtmpwJSv5" target="_blank" rel="noreferrer"
+                  class="cta-group relative inline-flex items-center justify-center rounded-full bg-slate-950 px-6 py-4 text-sm font-semibold text-white shadow-lg shadow-slate-900/15 transition hover:bg-emerald-500 hover:shadow-emerald-500/25">
+                  <span class="block transition-transform duration-200 hover:-translate-y-1">預約諮詢</span>
+                  <span class="status-badge">Status: Ready to Connect</span>
+                </a>
+                <a href="#cases"
+                  class="inline-flex items-center justify-center rounded-full border border-slate-200 bg-white px-6 py-4 text-sm font-semibold text-slate-700 shadow-sm transition hover:border-blue-200 hover:text-slate-950">
+                  查看案例成果
+                </a>
+              </div>
+
+              <div class="mt-10 grid gap-4 sm:grid-cols-3">
+                <div class="metric p-5 reveal">
+                  <div class="text-2xl font-semibold text-slate-950">9 年</div>
+                  <div class="mt-1 text-sm text-slate-500">CFD 金融交易平台經驗</div>
+                </div>
+                <div class="metric p-5 reveal">
+                  <div class="text-2xl font-semibold text-slate-950">5 年</div>
+                  <div class="mt-1 text-sm text-slate-500">管理經驗 / 20+ 人團隊</div>
+                </div>
+                <div class="metric p-5 reveal">
+                  <div class="text-2xl font-semibold text-slate-950">Data</div>
+                  <div class="mt-1 text-sm text-slate-500">Tableau / Power BI 驅動決策</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hero right panel -->
+          <div class="reveal">
+            <div class="glass-card glow-hover rounded-[2rem] p-6 sm:p-8">
+              <div class="flex items-center justify-between">
+                <div>
+                  <div class="text-sm font-semibold text-slate-500">Growth Operating System</div>
+                  <div class="mt-1 text-2xl font-semibold text-slate-950">CRM × Data × Retention</div>
+                </div>
+                <div class="rounded-2xl bg-emerald-50 px-3 py-2 text-xs font-bold text-emerald-700">
+                  LIVE
+                </div>
+              </div>
+
+              <div class="mt-8 grid gap-4">
+                <div class="rounded-3xl border border-slate-200/80 bg-white/80 p-5">
+                  <div class="flex items-center justify-between">
+                    <span class="text-sm font-semibold text-slate-700">Retention Lift</span>
+                    <span class="text-sm font-semibold text-emerald-600">+18.4%</span>
+                  </div>
+                  <div class="mt-3 h-2 rounded-full bg-slate-100 overflow-hidden">
+                    <div
+                      class="h-full w-[84%] rounded-full bg-gradient-to-r from-blue-600 via-violet-600 to-emerald-500">
+                    </div>
+                  </div>
+                  <div class="mt-3 grid grid-cols-3 gap-3 text-xs text-slate-500">
+                    <div class="rounded-2xl bg-slate-50 p-3">召回率 <span
+                        class="mt-1 block text-sm font-semibold text-slate-900">37%</span></div>
+                    <div class="rounded-2xl bg-slate-50 p-3">開信率 <span
+                        class="mt-1 block text-sm font-semibold text-slate-900">62%</span></div>
+                    <div class="rounded-2xl bg-slate-50 p-3">轉化率 <span
+                        class="mt-1 block text-sm font-semibold text-slate-900">11.8%</span></div>
+                  </div>
+                </div>
+
+                <div class="grid gap-4 sm:grid-cols-2">
+                  <div class="rounded-3xl border border-slate-200/80 bg-white/80 p-5">
+                    <div class="text-sm font-semibold text-slate-700">CRM Automation</div>
+                    <div class="mt-4 mini-chart">
+                      <span style="height:36%"></span>
+                      <span style="height:62%"></span>
+                      <span style="height:48%"></span>
+                      <span style="height:88%"></span>
+                      <span style="height:72%"></span>
+                      <span style="height:94%"></span>
+                    </div>
+                  </div>
+                  <div class="rounded-3xl border border-slate-200/80 bg-white/80 p-5">
+                    <div class="text-sm font-semibold text-slate-700">Decision Layer</div>
+                    <div class="mt-3 space-y-3 text-sm text-slate-600">
+                      <div class="flex items-center justify-between"><span>Segmentation</span><span
+                          class="font-semibold text-slate-900">Ready</span></div>
+                      <div class="flex items-center justify-between"><span>Journey Map</span><span
+                          class="font-semibold text-slate-900">Active</span></div>
+                      <div class="flex items-center justify-between"><span>BI Reporting</span><span
+                          class="font-semibold text-slate-900">Live</span></div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="rounded-3xl bg-gradient-to-br from-blue-600 via-violet-600 to-emerald-500 p-[1px]">
+                  <div class="rounded-[1.45rem] bg-white/95 p-5">
+                    <div class="text-sm font-semibold text-slate-500">Focus</div>
+                    <div class="mt-1 text-lg font-semibold text-slate-950">把營運做成可複製的成長系統</div>
+                    <p class="mt-2 text-sm leading-7 text-slate-600">
+                      從客戶分層、召回策略、轉化漏斗到跨部門協作，把每個動作連回可衡量的商業結果。
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="fade-line mx-auto max-w-7xl"></div>
+
+    <!-- About -->
+    <section id="about" class="py-20 sm:py-24">
+      <div class="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
+        <div class="reveal mb-10 max-w-3xl">
+          <div class="section-kicker">About</div>
+          <h2 class="mt-3 text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
+            CRM、用戶成長與數據驅動決策的整合型營運角色
+          </h2>
+          <p class="mt-4 text-base leading-8 text-slate-600">
+            9 年 CFD 金融交易平台經驗，橫跨客戶服務、CRM、用戶運營與團隊管理。
+            5 年管理經驗中，長期負責 20+ 人團隊，聚焦用戶生命週期管理、分層經營、召回、轉化漏斗與用戶旅程設計。
+            具備 Tableau 與 Power BI 數據分析能力，並能與產品、行銷、運營團隊協作，將策略落地為可量化結果。
+          </p>
+        </div>
+
+        <div class="grid gap-5 lg:grid-cols-[1.1fr_0.9fr]">
+          <div class="glass-card reveal rounded-[2rem] p-6 sm:p-8">
+            <div class="grid gap-4 sm:grid-cols-2">
+              <div class="metric p-5">
+                <div class="text-sm font-semibold text-slate-500">核心定位</div>
+                <div class="mt-2 text-xl font-semibold text-slate-950">用戶成長與 CRM 策略專家</div>
+              </div>
+              <div class="metric p-5">
+                <div class="text-sm font-semibold text-slate-500">方法論</div>
+                <div class="mt-2 text-xl font-semibold text-slate-950">數據先行，策略落地</div>
+              </div>
+              <div class="metric p-5">
+                <div class="text-sm font-semibold text-slate-500">經營範圍</div>
+                <div class="mt-2 text-xl font-semibold text-slate-950">客戶旅程 × 分層 × 召回</div>
+              </div>
+              <div class="metric p-5">
+                <div class="text-sm font-semibold text-slate-500">協作能力</div>
+                <div class="mt-2 text-xl font-semibold text-slate-950">跨部門推進與對齊</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="glass-card reveal rounded-[2rem] p-6 sm:p-8">
+            <div class="relative pl-10">
+              <div class="timeline-line"></div>
+              <div class="space-y-6">
+                <div class="relative">
+                  <div
+                    class="absolute left-[-28px] top-1 h-4 w-4 rounded-full bg-gradient-to-br from-blue-600 to-violet-600 ring-4 ring-blue-100">
+                  </div>
+                  <div class="text-sm font-semibold text-slate-900">9 年 CFD 平台實務</div>
+                  <p class="mt-1 text-sm leading-7 text-slate-600">長期累積高互動、高轉化與高流失風險客群的營運經驗。</p>
+                </div>
+                <div class="relative">
+                  <div
+                    class="absolute left-[-28px] top-1 h-4 w-4 rounded-full bg-gradient-to-br from-violet-600 to-emerald-500 ring-4 ring-violet-100">
+                  </div>
+                  <div class="text-sm font-semibold text-slate-900">5 年團隊管理</div>
+                  <p class="mt-1 text-sm leading-7 text-slate-600">負責制度、流程、績效與跨組協作，讓執行可複製、可追蹤。</p>
+                </div>
+                <div class="relative">
+                  <div
+                    class="absolute left-[-28px] top-1 h-4 w-4 rounded-full bg-gradient-to-br from-emerald-500 to-blue-600 ring-4 ring-emerald-100">
+                  </div>
+                  <div class="text-sm font-semibold text-slate-900">資料驅動營運</div>
+                  <p class="mt-1 text-sm leading-7 text-slate-600">用 Tableau / Power BI 追蹤漏斗、分群與活動成果，支援決策優化。</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="py-20 sm:py-24 bg-slate-50/70">
+      <div class="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
+        <div class="reveal max-w-3xl mb-10">
+          <div class="section-kicker">Services</div>
+          <h2 class="mt-3 text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
+            可落地的營運能力，不只是概念
+          </h2>
+        </div>
+
+        <div class="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+          <article class="glass-card glow-hover reveal rounded-[1.75rem] p-6">
+            <div class="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-50 text-blue-700">01</div>
+            <h3 class="text-xl font-semibold text-slate-950">CRM 客戶生命週期設計</h3>
+            <p class="mt-3 text-sm leading-7 text-slate-600">從新客啟動、活躍深化、沉睡喚回到高價值維繫，設計清楚的生命周期節點與觸發機制。</p>
+          </article>
+
+          <article class="glass-card glow-hover reveal rounded-[1.75rem] p-6">
+            <div class="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-violet-50 text-violet-700">02
+            </div>
+            <h3 class="text-xl font-semibold text-slate-950">用戶分層與精準營運策略</h3>
+            <p class="mt-3 text-sm leading-7 text-slate-600">依交易行為、資產、頻率與價值分層，對不同族群配置不同溝通節奏與資源投入。</p>
+          </article>
+
+          <article class="glass-card glow-hover reveal rounded-[1.75rem] p-6">
+            <div class="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-emerald-50 text-emerald-700">03
+            </div>
+            <h3 class="text-xl font-semibold text-slate-950">流失用戶召回系統</h3>
+            <p class="mt-3 text-sm leading-7 text-slate-600">建立流失預警、召回名單與個人化訊息策略，提升回流率與再活化效率。</p>
+          </article>
+
+          <article class="glass-card glow-hover reveal rounded-[1.75rem] p-6">
+            <div class="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-50 text-blue-700">04</div>
+            <h3 class="text-xl font-semibold text-slate-950">轉化漏斗與數據分析</h3>
+            <p class="mt-3 text-sm leading-7 text-slate-600">追蹤曝光、點擊、留資、啟動與轉化各階段，找出最大漏失點與優化優先序。</p>
+          </article>
+
+          <article class="glass-card glow-hover reveal rounded-[1.75rem] p-6">
+            <div class="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-violet-50 text-violet-700">05
+            </div>
+            <h3 class="text-xl font-semibold text-slate-950">客服團隊管理與流程建置</h3>
+            <p class="mt-3 text-sm leading-7 text-slate-600">建立服務 SOP、教育訓練與績效管理，讓前線回應一致且可擴張。</p>
+          </article>
+
+          <article class="glass-card glow-hover reveal rounded-[1.75rem] p-6">
+            <div class="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-emerald-50 text-emerald-700">06
+            </div>
+            <h3 class="text-xl font-semibold text-slate-950">跨部門營運協作機制</h3>
+            <p class="mt-3 text-sm leading-7 text-slate-600">串接產品、行銷、運營，將客戶聲音與數據回饋成可執行的產品與活動方案。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Cases -->
+    <section id="cases" class="py-20 sm:py-24">
+      <div class="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
+        <div class="reveal mb-10 max-w-3xl">
+          <div class="section-kicker">Case Studies</div>
+          <h2 class="mt-3 text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
+            SaaS dashboard 風格成果展示
+          </h2>
+          <p class="mt-4 text-base leading-8 text-slate-600">
+            以下為示意 KPI，可用於個人品牌網站呈現專業能力與成果表達方式。
+          </p>
+        </div>
+
+        <div class="grid gap-5 xl:grid-cols-2">
+          <article class="glass-card reveal rounded-[2rem] p-6 sm:p-7">
+            <div class="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+              <div>
+                <div class="text-sm font-semibold text-blue-700">客戶留存提升</div>
+                <h3 class="mt-1 text-2xl font-semibold text-slate-950">建立分層召回與再激活節奏</h3>
+              </div>
+              <div class="rounded-2xl bg-emerald-50 px-3 py-2 text-sm font-bold text-emerald-700">+18.4%</div>
+            </div>
+            <div class="mt-6 grid gap-4 sm:grid-cols-[0.9fr_1.1fr]">
+              <div class="rounded-3xl bg-slate-50 p-5">
+                <div class="text-sm text-slate-500">回流率</div>
+                <div class="mt-1 text-3xl font-semibold text-slate-950">37%</div>
+                <p class="mt-2 text-sm leading-7 text-slate-600">透過流失預警、召回訊息與差異化活動，提升沉睡客戶回流。</p>
+              </div>
+              <div class="rounded-3xl bg-white p-5 border border-slate-200/70">
+                <div class="flex items-end gap-3 h-36">
+                  <div class="w-full rounded-t-2xl bg-gradient-to-t from-blue-600 to-blue-300" style="height:42%"></div>
+                  <div class="w-full rounded-t-2xl bg-gradient-to-t from-blue-600 to-violet-400" style="height:58%">
+                  </div>
+                  <div class="w-full rounded-t-2xl bg-gradient-to-t from-violet-600 to-violet-300" style="height:71%">
+                  </div>
+                  <div class="w-full rounded-t-2xl bg-gradient-to-t from-emerald-600 to-emerald-300" style="height:84%">
+                  </div>
+                </div>
+                <div class="mt-4 grid grid-cols-4 gap-2 text-center text-xs text-slate-500">
+                  <div>Q1</div>
+                  <div>Q2</div>
+                  <div>Q3</div>
+                  <div>Q4</div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="glass-card reveal rounded-[2rem] p-6 sm:p-7">
+            <div class="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+              <div>
+                <div class="text-sm font-semibold text-violet-700">轉化率優化</div>
+                <h3 class="mt-1 text-2xl font-semibold text-slate-950">從漏斗分析定位轉化瓶頸</h3>
+              </div>
+              <div class="rounded-2xl bg-blue-50 px-3 py-2 text-sm font-bold text-blue-700">11.8%</div>
+            </div>
+            <div class="mt-6 grid gap-4 sm:grid-cols-2">
+              <div class="rounded-3xl border border-slate-200/70 bg-white p-5">
+                <div class="text-sm font-semibold text-slate-700">漏斗階段</div>
+                <div class="mt-4 space-y-4">
+                  <div>
+                    <div class="mb-2 flex justify-between text-xs text-slate-500"><span>曝光</span><span>100%</span></div>
+                    <div class="skill-bar"><i style="width:100%"></i></div>
+                  </div>
+                  <div>
+                    <div class="mb-2 flex justify-between text-xs text-slate-500"><span>留資</span><span>73%</span></div>
+                    <div class="skill-bar"><i style="width:73%"></i></div>
+                  </div>
+                  <div>
+                    <div class="mb-2 flex justify-between text-xs text-slate-500"><span>啟動</span><span>49%</span></div>
+                    <div class="skill-bar"><i style="width:49%"></i></div>
+                  </div>
+                </div>
+              </div>
+              <div class="rounded-3xl bg-slate-50 p-5">
+                <div class="text-sm text-slate-500">優化策略</div>
+                <ul class="mt-3 space-y-3 text-sm leading-7 text-slate-700">
+                  <li>• 精簡訊息與 CTA 路徑</li>
+                  <li>• 針對高意圖群體推送專屬內容</li>
+                  <li>• 依行為事件調整跟進節奏</li>
+                </ul>
+              </div>
+            </div>
+          </article>
+
+          <article class="glass-card reveal rounded-[2rem] p-6 sm:p-7">
+            <div class="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+              <div>
+                <div class="text-sm font-semibold text-emerald-700">CRM 活動成效</div>
+                <h3 class="mt-1 text-2xl font-semibold text-slate-950">多渠道訊息提升觸達效率</h3>
+              </div>
+              <div class="rounded-2xl bg-emerald-50 px-3 py-2 text-sm font-bold text-emerald-700">62% 開信率</div>
+            </div>
+            <div class="mt-6 grid gap-4 sm:grid-cols-[1fr_1fr]">
+              <div class="rounded-3xl bg-white p-5 border border-slate-200/70">
+                <div class="text-sm font-semibold text-slate-700">活動成效面板</div>
+                <div class="mt-4 space-y-4">
+                  <div class="flex items-center justify-between text-sm"><span class="text-slate-500">Email</span><span
+                      class="font-semibold text-slate-900">62%</span></div>
+                  <div class="flex items-center justify-between text-sm"><span class="text-slate-500">站內訊息</span><span
+                      class="font-semibold text-slate-900">41%</span></div>
+                  <div class="flex items-center justify-between text-sm"><span class="text-slate-500">電話跟進</span><span
+                      class="font-semibold text-slate-900">29%</span></div>
+                </div>
+              </div>
+              <div class="rounded-3xl bg-slate-50 p-5">
+                <div class="text-sm text-slate-500">關鍵動作</div>
+                <p class="mt-3 text-sm leading-7 text-slate-600">
+                  依用戶屬性與行為事件，對不同群體輸出不同內容與節奏，提升活動效率與轉化品質。
+                </p>
+              </div>
+            </div>
+          </article>
+
+          <article class="glass-card reveal rounded-[2rem] p-6 sm:p-7">
+            <div class="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+              <div>
+                <div class="text-sm font-semibold text-slate-700">客戶分層策略成果</div>
+                <h3 class="mt-1 text-2xl font-semibold text-slate-950">高價值客群經營與資源分配優化</h3>
+              </div>
+              <div class="rounded-2xl bg-violet-50 px-3 py-2 text-sm font-bold text-violet-700">AUM +24%</div>
+            </div>
+            <div class="mt-6 grid gap-4 sm:grid-cols-2">
+              <div class="rounded-3xl bg-slate-50 p-5">
+                <div class="text-sm text-slate-500">分層原則</div>
+                <div class="mt-3 flex flex-wrap gap-2">
+                  <span class="pill">高貢獻客群</span>
+                  <span class="pill">交易活躍客群</span>
+                  <span class="pill">潛在流失客群</span>
+                  <span class="pill">沉睡召回客群</span>
+                </div>
+              </div>
+              <div class="rounded-3xl bg-white p-5 border border-slate-200/70">
+                <div class="text-sm font-semibold text-slate-700">結果</div>
+                <p class="mt-3 text-sm leading-7 text-slate-600">
+                  透過資源分配與專屬跟進機制，提升高價值客群留存與使用深度，同時降低無效溝通成本。
+                </p>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills" class="py-20 sm:py-24 bg-slate-50/70">
+      <div class="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
+        <div class="reveal mb-10 max-w-3xl">
+          <div class="section-kicker">Skills / Tools</div>
+          <h2 class="mt-3 text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
+            將能力拆成可辨識、可比較、可交付的模組
+          </h2>
+        </div>
+
+        <div class="grid gap-5 xl:grid-cols-5">
+          <div class="glass-card reveal rounded-[1.75rem] p-6 xl:col-span-1">
+            <h3 class="text-lg font-semibold text-slate-950">CRM / Growth</h3>
+            <div class="mt-4 flex flex-wrap gap-2">
+              <span class="pill">生命週期管理</span>
+              <span class="pill">分層經營</span>
+              <span class="pill">召回策略</span>
+              <span class="pill">轉化漏斗</span>
+              <span class="pill">用戶旅程</span>
+            </div>
+          </div>
+
+          <div class="glass-card reveal rounded-[1.75rem] p-6 xl:col-span-1">
+            <h3 class="text-lg font-semibold text-slate-950">數據分析</h3>
+            <div class="mt-4 flex flex-wrap gap-2">
+              <span class="pill">Tableau</span>
+              <span class="pill">Power BI</span>
+              <span class="pill">指標設計</span>
+              <span class="pill">漏斗分析</span>
+              <span class="pill">KPI 報表</span>
+            </div>
+          </div>
+
+          <div class="glass-card reveal rounded-[1.75rem] p-6 xl:col-span-1">
+            <h3 class="text-lg font-semibold text-slate-950">客戶運營</h3>
+            <div class="mt-4 flex flex-wrap gap-2">
+              <span class="pill">客訴處理</span>
+              <span class="pill">分群溝通</span>
+              <span class="pill">活動設計</span>
+              <span class="pill">再活化</span>
+              <span class="pill">內容觸達</span>
+            </div>
+          </div>
+
+          <div class="glass-card reveal rounded-[1.75rem] p-6 xl:col-span-1">
+            <h3 class="text-lg font-semibold text-slate-950">團隊管理</h3>
+            <div class="mt-4 flex flex-wrap gap-2">
+              <span class="pill">20+ 人管理</span>
+              <span class="pill">SOP</span>
+              <span class="pill">培訓</span>
+              <span class="pill">績效管理</span>
+              <span class="pill">排班規劃</span>
+            </div>
+          </div>
+
+          <div class="glass-card reveal rounded-[1.75rem] p-6 xl:col-span-1">
+            <h3 class="text-lg font-semibold text-slate-950">跨部門協作</h3>
+            <div class="mt-4 flex flex-wrap gap-2">
+              <span class="pill">產品</span>
+              <span class="pill">行銷</span>
+              <span class="pill">運營</span>
+              <span class="pill">需求整合</span>
+              <span class="pill">溝通推進</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-6 grid gap-5 lg:grid-cols-2">
+          <div class="glass-card reveal rounded-[2rem] p-6">
+            <div class="flex items-center justify-between">
+              <h3 class="text-lg font-semibold text-slate-950">能力成熟度</h3>
+              <span class="text-sm text-slate-500">示意</span>
+            </div>
+            <div class="mt-5 space-y-5">
+              <div>
+                <div class="mb-2 flex justify-between text-sm"><span>CRM / Growth</span><span
+                    class="font-semibold">95%</span></div>
+                <div class="skill-bar"><i style="width:95%"></i></div>
+              </div>
+              <div>
+                <div class="mb-2 flex justify-between text-sm"><span>數據分析</span><span class="font-semibold">88%</span>
+                </div>
+                <div class="skill-bar"><i style="width:88%"></i></div>
+              </div>
+              <div>
+                <div class="mb-2 flex justify-between text-sm"><span>團隊管理</span><span class="font-semibold">90%</span>
+                </div>
+                <div class="skill-bar"><i style="width:90%"></i></div>
+              </div>
+              <div>
+                <div class="mb-2 flex justify-between text-sm"><span>跨部門協作</span><span class="font-semibold">92%</span>
+                </div>
+                <div class="skill-bar"><i style="width:92%"></i></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="glass-card reveal rounded-[2rem] p-6">
+            <div class="flex items-center justify-between">
+              <h3 class="text-lg font-semibold text-slate-950">工具與工作流</h3>
+              <span class="text-sm text-slate-500">Stack</span>
+            </div>
+            <div class="mt-5 grid gap-3 sm:grid-cols-2">
+              <div class="rounded-2xl bg-white/80 p-4 border border-slate-200/70">
+                <div class="text-sm font-semibold text-slate-900">分析層</div>
+                <p class="mt-2 text-sm leading-7 text-slate-600">Tableau、Power BI、Excel、Sheets、指標追蹤</p>
+              </div>
+              <div class="rounded-2xl bg-white/80 p-4 border border-slate-200/70">
+                <div class="text-sm font-semibold text-slate-900">營運層</div>
+                <p class="mt-2 text-sm leading-7 text-slate-600">CRM 排程、分群推送、活動管理、召回流程</p>
+              </div>
+              <div class="rounded-2xl bg-white/80 p-4 border border-slate-200/70">
+                <div class="text-sm font-semibold text-slate-900">管理層</div>
+                <p class="mt-2 text-sm leading-7 text-slate-600">SOP、培訓、績效、協作節奏、問題閉環</p>
+              </div>
+              <div class="rounded-2xl bg-white/80 p-4 border border-slate-200/70">
+                <div class="text-sm font-semibold text-slate-900">協作層</div>
+                <p class="mt-2 text-sm leading-7 text-slate-600">產品 / 行銷 / 運營對齊與需求落地</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Insights -->
+    <section id="insights" class="py-20 sm:py-24">
+      <div class="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
+        <div class="reveal mb-10 max-w-3xl">
+          <div class="section-kicker">Blog / Insights</div>
+          <h2 class="mt-3 text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
+            技術觀點與方法論
+          </h2>
+        </div>
+
+        <div class="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+          <article class="glass-card glow-hover reveal rounded-[1.75rem] p-6">
+            <div class="text-xs font-bold uppercase tracking-[0.18em] text-blue-700">Growth</div>
+            <h3 class="mt-3 text-xl font-semibold text-slate-950">如何把用戶成長拆成可執行節點</h3>
+            <p class="mt-3 text-sm leading-7 text-slate-600">從曝光、留資、啟動到留存，逐段優化而不是只看單一轉化。</p>
+          </article>
+
+          <article class="glass-card glow-hover reveal rounded-[1.75rem] p-6">
+            <div class="text-xs font-bold uppercase tracking-[0.18em] text-violet-700">CRM</div>
+            <h3 class="mt-3 text-xl font-semibold text-slate-950">CRM 不是群發，是分層與節奏</h3>
+            <p class="mt-3 text-sm leading-7 text-slate-600">真正有效的 CRM，是根據行為與價值做訊息、頻率與內容匹配。</p>
+          </article>
+
+          <article class="glass-card glow-hover reveal rounded-[1.75rem] p-6">
+            <div class="text-xs font-bold uppercase tracking-[0.18em] text-emerald-700">Data</div>
+            <h3 class="mt-3 text-xl font-semibold text-slate-950">數據驅動決策的最低可行版本</h3>
+            <p class="mt-3 text-sm leading-7 text-slate-600">先建立關鍵指標，再建立儀表板，最後讓團隊使用指標說話。</p>
+          </article>
+
+          <article class="glass-card glow-hover reveal rounded-[1.75rem] p-6">
+            <div class="text-xs font-bold uppercase tracking-[0.18em] text-slate-700">Ops</div>
+            <h3 class="mt-3 text-xl font-semibold text-slate-950">客戶經營方法論：從反應式到預防式</h3>
+            <p class="mt-3 text-sm leading-7 text-slate-600">把問題前移到預警與分流，降低客服成本並提升體驗一致性。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Core Products & Tech Solutions -->
+    <section id="solutions" class="py-20 sm:py-24 bg-slate-50/70">
+      <div class="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
+        <div class="reveal mb-10 max-w-3xl">
+          <div class="section-kicker">Core Solutions</div>
+          <h2 class="mt-3 text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
+            核心產品與技術解決方案
+          </h2>
+        </div>
+
+        <div class="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+          <article class="glass-card glow-hover reveal rounded-[1.75rem] p-6">
+            <div class="mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-blue-50 text-xl text-blue-700">
+              <i class="fas fa-headset"></i>
+            </div>
+            <h3 class="text-xl font-semibold text-slate-950">👥 客服團隊</h3>
+            <p class="mt-3 text-sm leading-7 text-slate-600">客服團隊運營SOP描述描述</p>
+            <div class="mt-4 space-y-2 text-sm text-slate-600">
+              <div class="flex items-center gap-2">
+                <i class="fas fa-check-circle text-blue-600"></i>
+                <span>團隊管理與績效</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <i class="fas fa-check-circle text-blue-600"></i>
+                <span>SOP 流程建置</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <i class="fas fa-check-circle text-blue-600"></i>
+                <span>培訓與運營</span>
+              </div>
+            </div>
+            <a href="https://" target="_blank" rel="noreferrer"
+              class="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-blue-700 hover:text-blue-900 transition">
+              了解詳情 <i class="fas fa-arrow-right text-xs"></i>
+            </a>
+          </article>
+
+          <article class="glass-card glow-hover reveal rounded-[1.75rem] p-6">
+            <div
+              class="mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-violet-50 text-xl text-violet-700">
+              <i class="fas fa-route"></i>
+            </div>
+            <h3 class="text-xl font-semibold text-slate-950">🎯 客戶旅程</h3>
+            <p class="mt-3 text-sm leading-7 text-slate-600">客戶旅程描述描述描述</p>
+            <div class="mt-4 space-y-2 text-sm text-slate-600">
+              <div class="flex items-center gap-2">
+                <i class="fas fa-check-circle text-violet-600"></i>
+                <span>客戶分層與策略</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <i class="fas fa-check-circle text-violet-600"></i>
+                <span>多渠道觸達</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <i class="fas fa-check-circle text-violet-600"></i>
+                <span>轉化與留存優化</span>
+              </div>
+            </div>
+            <a href="https://" target="_blank" rel="noreferrer"
+              class="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-violet-700 hover:text-violet-900 transition">
+              了解詳情 <i class="fas fa-arrow-right text-xs"></i>
+            </a>
+          </article>
+
+          <article class="glass-card glow-hover reveal rounded-[1.75rem] p-6">
+            <div
+              class="mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-emerald-50 text-xl text-emerald-700">
+              <i class="fas fa-cogs"></i>
+            </div>
+            <h3 class="text-xl font-semibold text-slate-950">⚙️ 自動化</h3>
+            <p class="mt-3 text-sm leading-7 text-slate-600">自動化描述描述描述</p>
+            <div class="mt-4 space-y-2 text-sm text-slate-600">
+              <div class="flex items-center gap-2">
+                <i class="fas fa-check-circle text-emerald-600"></i>
+                <span>CRM 流程自動化</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <i class="fas fa-check-circle text-emerald-600"></i>
+                <span>觸發機制與工作流</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <i class="fas fa-check-circle text-emerald-600"></i>
+                <span>效率提升與成本優化</span>
+              </div>
+            </div>
+            <a href="https://" target="_blank" rel="noreferrer"
+              class="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-emerald-700 hover:text-emerald-900 transition">
+              了解詳情 <i class="fas fa-arrow-right text-xs"></i>
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Social Media - Dependencies Style -->
+    <section id="social" class="py-20 sm:py-24">
+      <div class="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
+        <div class="reveal mb-10 max-w-3xl">
+          <div class="section-kicker">Connect With Me</div>
+          <h2 class="mt-3 text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
+            多元社群互動
+          </h2>
+          <p class="mt-4 text-base leading-8 text-slate-600">
+            透過不同社群平台與我保持聯絡，分享專業洞察與技術觀點。
+          </p>
+        </div>
+
+        <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+          <!-- LINE -->
+          <a href="https://aistudy.pse.is/linemdsgroup" target="_blank" rel="noreferrer"
+            class="glass-card glow-hover reveal rounded-[1.5rem] p-6 flex flex-col items-center justify-center text-center group">
+            <div
+              class="mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-green-50 text-2xl text-green-600 group-hover:scale-110 transition-transform">
+              <i class="fab fa-line"></i>
+            </div>
+            <h3 class="text-lg font-semibold text-slate-950">LINE</h3>
+            <p class="mt-2 text-sm text-slate-600">即時溝通與快速回覆</p>
+            <div class="mt-3 text-xs text-green-600 font-semibold">立即聯絡</div>
+          </a>
+
+          <!-- Facebook -->
+          <a href="https://www.facebook.com/MarketingDataScienceTMR/" target="_blank" rel="noreferrer"
+            class="glass-card glow-hover reveal rounded-[1.5rem] p-6 flex flex-col items-center justify-center text-center group">
+            <div
+              class="mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-blue-50 text-2xl text-blue-600 group-hover:scale-110 transition-transform">
+              <i class="fab fa-facebook"></i>
+            </div>
+            <h3 class="text-lg font-semibold text-slate-950">Facebook</h3>
+            <p class="mt-2 text-sm text-slate-600">分享行業動態與觀點</p>
+            <div class="mt-3 text-xs text-blue-600 font-semibold">追蹤粉專</div>
+          </a>
+
+          <!-- LinkedIn -->
+          <a href="https://www.linkedin.com/in/howardzhong/" target="_blank" rel="noreferrer"
+            class="glass-card glow-hover reveal rounded-[1.5rem] p-6 flex flex-col items-center justify-center text-center group">
+            <div
+              class="mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-blue-100 text-2xl text-blue-700 group-hover:scale-110 transition-transform">
+              <i class="fab fa-linkedin"></i>
+            </div>
+            <h3 class="text-lg font-semibold text-slate-950">LinkedIn</h3>
+            <p class="mt-2 text-sm text-slate-600">專業網絡與經驗分享</p>
+            <div class="mt-3 text-xs text-blue-700 font-semibold">連結頁面</div>
+          </a>
+
+          <!-- GitHub -->
+          <a href="https://github.com/HowardNTUST" target="_blank" rel="noreferrer"
+            class="glass-card glow-hover reveal rounded-[1.5rem] p-6 flex flex-col items-center justify-center text-center group">
+            <div
+              class="mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-slate-50 text-2xl text-slate-900 group-hover:scale-110 transition-transform">
+              <i class="fab fa-github"></i>
+            </div>
+            <h3 class="text-lg font-semibold text-slate-950">GitHub</h3>
+            <p class="mt-2 text-sm text-slate-600">開源專案與程式碼</p>
+            <div class="mt-3 text-xs text-slate-700 font-semibold">檢視作品</div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Request Form Section -->
+    <section id="request-form" class="py-20 sm:py-24 bg-slate-50/70">
+      <div class="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
+        <div class="glass-card reveal rounded-[2rem] p-8 sm:p-10 max-w-3xl mx-auto">
+          <div class="text-center mb-8">
+            <div class="section-kicker">Submit Your Request</div>
+            <h2 class="mt-3 text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
+              填寫需求表單
+            </h2>
+            <p class="mt-4 text-base leading-8 text-slate-600">
+              詳細描述您的需求、挑戰與目標。我會儘快回覆並提供建議方案。
+            </p>
+          </div>
+
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a href="https://forms.gle/8jgcNXeUVSBwSzBQ7" target="_blank" rel="noreferrer"
+              class="flex-1 cta-group relative inline-flex items-center justify-center rounded-full bg-gradient-to-r from-blue-600 to-violet-600 px-8 py-4 text-sm font-semibold text-white shadow-lg shadow-blue-600/25 transition hover:shadow-lg hover:shadow-blue-600/40">
+              <span
+                class="block transition-transform duration-200 hover:-translate-y-1 flex items-center justify-center gap-2">
+                <i class="fas fa-file-alt"></i>
+                開始填寫表單
+              </span>
+            </a>
+            <p class="flex items-center justify-center text-sm text-slate-600">
+              <i class="fas fa-clock text-blue-600 mr-2"></i>
+              預計 5-10 分鐘完成
+            </p>
+          </div>
+
+          <div class="mt-8 grid gap-4 sm:grid-cols-3 text-center">
+            <div class="p-4 rounded-lg bg-white/50">
+              <i class="fas fa-check-circle text-emerald-600 text-2xl mb-2"></i>
+              <div class="text-sm font-semibold text-slate-700">快速回覆</div>
+            </div>
+            <div class="p-4 rounded-lg bg-white/50">
+              <i class="fas fa-lightbulb text-amber-600 text-2xl mb-2"></i>
+              <div class="text-sm font-semibold text-slate-700">專業建議</div>
+            </div>
+            <div class="p-4 rounded-lg bg-white/50">
+              <i class="fas fa-handshake text-blue-600 text-2xl mb-2"></i>
+              <div class="text-sm font-semibold text-slate-700">合作洽談</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="py-20 sm:py-24 bg-slate-50/70">
+      <div class="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
+        <div class="grid gap-6 lg:grid-cols-[1fr_0.9fr]">
+          <div class="reveal">
+            <div class="section-kicker">Contact</div>
+            <h2 class="mt-3 text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
+              聯絡我，討論 CRM、用戶成長與營運策略
+            </h2>
+            <p class="mt-4 max-w-2xl text-base leading-8 text-slate-600">
+              如需合作、顧問、面談或專案討論，可透過 Email 先行聯絡，或直接預約時間。
+            </p>
+
+            <div class="mt-8 grid gap-4 sm:grid-cols-2">
+              <div class="glass-card rounded-[1.5rem] p-5">
+                <div class="text-sm font-semibold text-slate-500">Email</div>
+                <div class="mt-2 text-lg font-semibold text-slate-950">kendra@example.com</div>
+              </div>
+              <div class="glass-card rounded-[1.5rem] p-5">
+                <div class="text-sm font-semibold text-slate-500">合作類型</div>
+                <div class="mt-2 text-lg font-semibold text-slate-950">顧問 / 面談 / 專案合作</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="glass-card reveal rounded-[2rem] p-6 sm:p-8">
+            <div class="rounded-[1.5rem] bg-gradient-to-br from-blue-600 via-violet-600 to-emerald-500 p-[1px]">
+              <div class="rounded-[1.45rem] bg-white/95 p-6">
+                <div class="text-sm font-semibold text-slate-500">Book a Call</div>
+                <h3 class="mt-2 text-2xl font-semibold text-slate-950">預約 30 分鐘諮詢</h3>
+                <p class="mt-3 text-sm leading-7 text-slate-600">適合討論個人品牌、CRM 策略、營運優化與成長路線。</p>
+                <a href="https://calendar.app.google/Fc5sixEVJtmpwJSv5" target="_blank" rel="noreferrer"
+                  class="cta-group relative mt-6 inline-flex w-full items-center justify-center rounded-full bg-slate-950 px-6 py-4 text-sm font-semibold text-white shadow-lg shadow-slate-900/15 transition hover:bg-emerald-500 hover:shadow-emerald-500/25">
+                  <span class="block transition-transform duration-200 hover:-translate-y-1">預約諮詢</span>
+                  <span class="status-badge">Status: Ready to Connect</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="mt-5 text-sm text-slate-500">
+              可將此區塊替換為表單、LinkedIn、LINE 或其他聯絡方式。
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-slate-200/80 bg-white/70 py-10">
+    <div class="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
+      <div class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+        <div>
+          <div class="text-sm font-semibold text-slate-900">Kendra</div>
+          <div class="mt-1 text-sm text-slate-500">User Growth · CRM Operations · Data-Driven Strategy</div>
+        </div>
+        <div class="text-sm text-slate-500">© 2026 Kendra. All rights reserved.</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ===== Mobile menu =====
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const menuIcon = document.getElementById('menuIcon');
+    let menuOpen = false;
+
+    function setMenu(open) {
+      menuOpen = open;
+      if (open) {
+        mobileMenu.style.maxHeight = mobileMenu.scrollHeight + 'px';
+        mobileMenu.style.opacity = '1';
+        mobileMenu.style.transform = 'translateY(0)';
+        mobileMenu.classList.add('pb-4');
+        menuIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />';
+      } else {
+        mobileMenu.style.maxHeight = '0px';
+        mobileMenu.style.opacity = '0';
+        mobileMenu.style.transform = 'translateY(-8px)';
+        mobileMenu.classList.remove('pb-4');
+        menuIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />';
+      }
+      menuBtn.setAttribute('aria-expanded', String(open));
+    }
+
+    menuBtn.addEventListener('click', () => setMenu(!menuOpen));
+    document.querySelectorAll('#mobileMenu a, nav a, header a[href^="#"]').forEach(link => {
+      link.addEventListener('click', () => setMenu(false));
+    });
+
+    // ===== Smooth scroll for anchors =====
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', (e) => {
+        const target = document.querySelector(anchor.getAttribute('href'));
+        if (!target) return;
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+
+    // ===== Navbar state on scroll =====
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 10) {
+        navbar.classList.add('shadow-[0_8px_30px_rgba(15,23,42,.05)]');
+      } else {
+        navbar.classList.remove('shadow-[0_8px_30px_rgba(15,23,42,.05)]');
+      }
+    });
+
+    // ===== Reveal on scroll =====
+    const revealEls = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.14 });
+    revealEls.forEach(el => observer.observe(el));
+
+    // ===== Typewriter animation =====
+    const lines = [
+      { el: document.getElementById('typeLine1'), text: 'Kendra' },
+      { el: document.getElementById('typeLine2'), text: '用戶成長與 CRM 營運專家' },
+      { el: document.getElementById('typeLine3'), text: '9年 CFD 經驗｜5年管理經驗' },
+      { el: document.getElementById('typeLine4'), text: '客戶經營 × 數據驅動 × 商業成長' },
+    ];
+    const cursor = document.getElementById('cursor');
+    let lineIndex = 0;
+
+    function typeLine(lineObj, done) {
+      const { el, text } = lineObj;
+      el.textContent = '';
+      let i = 0;
+      const tick = () => {
+        el.textContent = text.slice(0, i);
+        i++;
+        if (i <= text.length) {
+          requestAnimationFrame(() => setTimeout(tick, 26));
+        } else {
+          done && done();
+        }
+      };
+      tick();
+    }
+
+    function runTyping() {
+      if (lineIndex >= lines.length) {
+        cursor.style.display = 'none';
+        return;
+      }
+      typeLine(lines[lineIndex], () => {
+        lineIndex++;
+        setTimeout(runTyping, 180);
+      });
+    }
+
+    window.addEventListener('load', () => {
+      setTimeout(runTyping, 300);
+    });
+
+    // ===== Background particle network =====
+    const canvas = document.getElementById('bgCanvas');
+    const ctx = canvas.getContext('2d');
+    let w = canvas.width = window.innerWidth;
+    let h = canvas.height = window.innerHeight;
+
+    const particleCount = Math.min(42, Math.max(26, Math.floor((w * h) / 42000)));
+    const particles = [];
+
+    function rand(min, max) {
+      return Math.random() * (max - min) + min;
+    }
+
+    function initParticles() {
+      particles.length = 0;
+      for (let i = 0; i < particleCount; i++) {
+        particles.push({
+          x: rand(0, w),
+          y: rand(0, h),
+          vx: rand(-0.18, 0.18),
+          vy: rand(-0.16, 0.16),
+          r: rand(1, 2.1)
+        });
+      }
+    }
+
+    function resizeCanvas() {
+      w = canvas.width = window.innerWidth;
+      h = canvas.height = window.innerHeight;
+      initParticles();
+    }
+
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    function draw() {
+      ctx.clearRect(0, 0, w, h);
+
+      // soft ambient glow
+      const g1 = ctx.createRadialGradient(w * 0.25, h * 0.2, 0, w * 0.25, h * 0.2, Math.max(w, h) * 0.45);
+      g1.addColorStop(0, 'rgba(37,99,235,0.06)');
+      g1.addColorStop(1, 'rgba(37,99,235,0)');
+      ctx.fillStyle = g1;
+      ctx.fillRect(0, 0, w, h);
+
+      const g2 = ctx.createRadialGradient(w * 0.8, h * 0.15, 0, w * 0.8, h * 0.15, Math.max(w, h) * 0.35);
+      g2.addColorStop(0, 'rgba(124,58,237,0.05)');
+      g2.addColorStop(1, 'rgba(124,58,237,0)');
+      ctx.fillStyle = g2;
+      ctx.fillRect(0, 0, w, h);
+
+      particles.forEach((p, i) => {
+        p.x += p.vx;
+        p.y += p.vy;
+
+        if (p.x < -20) p.x = w + 20;
+        if (p.x > w + 20) p.x = -20;
+        if (p.y < -20) p.y = h + 20;
+        if (p.y > h + 20) p.y = -20;
+
+        // points
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(148,163,184,0.32)';
+        ctx.fill();
+
+        // connections
+        for (let j = i + 1; j < particles.length; j++) {
+          const q = particles[j];
+          const dx = p.x - q.x;
+          const dy = p.y - q.y;
+          const dist = Math.hypot(dx, dy);
+          if (dist < 140) {
+            ctx.beginPath();
+            ctx.strokeStyle = `rgba(37,99,235,${(1 - dist / 140) * 0.13})`;
+            ctx.lineWidth = 1;
+            ctx.moveTo(p.x, p.y);
+            ctx.lineTo(q.x, q.y);
+            ctx.stroke();
+          }
+        }
+      });
+
+      requestAnimationFrame(draw);
+    }
+
+    draw();
+  </script>
+</body>
+
+</html>
